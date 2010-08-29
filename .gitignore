@@ -1,0 +1,6 @@
+#do not track my development database, or the log files
+db/development.sqlite3
+log/*.log
+tmp/**/*
+doc/api
+doc/app

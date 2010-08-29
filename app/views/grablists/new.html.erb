@@ -1,0 +1,55 @@
+<h1>Add XML Feed</h1>
+
+<% form_for(@grablist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label 'XML Feed URL' %><br />
+    <%= f.text_field :feedurl %>
+  </p>
+  <p>
+    <%= f.label 'Feed Title' %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label 'User ID (you can leave this blank - see notes below)' %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', grablists_path %>
+
+  <h2>Notes</h2>
+  <h3>XML Feed URL</h3>
+  <p>You can get this URL from your google calendar</p>
+  <ul>
+    <li>In your calendar, go to 'Calendar Settings' (top right of screen)</li>
+    <li>go to 'Calendars' (second link on dark yellow background near top of page)</li>
+    <li>Pick a calendar - click on the calendar name</li>
+    <li>Right click then choose 'copy link address' on the orange XML icon in the 'Private Address' section at the bottom of the page.
+      <%= image_tag('screenshot1.png', :alt => "Screenshot showing the icons containing the XML Feed URL") %>
+    </li>
+    <li>Paste the link into the XML Feed URL box above</li>
+    <li>Change the end of the URL from /basic to /composite.  EG you had:<br/>
+      https://www.google.com/calendar/feeds/steve%40yourdomain.co.uk/private-01234abcd56789etc/basic<br/>
+    you need to have:<br/>
+    https://www.google.com/calendar/feeds/steve%40yourdomain.co.uk/private-01234abcd56789etc/composite</li>
+    <li>The URL includes a passcode. Anyone with this URL can see your calendar content, so don't share it.
+      If you think it may have been seen by others, you can "Reset Private URLs" to get a new passcode.
+      Remember you'll have to update your feed URL here too.</li>
+    <li>bonus note: While writing this guide, I noticed that my private feed URL is showing 'disabled'.
+      My XML feeds still work and are still being backed up. I guess that google disable the feed
+      password after a while so if you want to use it again you'll need to "Reset Private URLs".
+      You can check your feed by pasting the URL into a browser window.</li>
+  </ul>
+  
+
+  <h3>Feed Title</h3>
+  <p>You can name your feed here, so that if you have several feeds on your
+    home page you'll know which is which</p>
+  <h3>User ID</h3>
+  <p>A number. Eventually I might add user authentication, so this would
+    record which user added a feed. You can leave this blank</p>

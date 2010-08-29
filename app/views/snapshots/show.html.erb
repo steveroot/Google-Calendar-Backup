@@ -1,0 +1,28 @@
+<p>
+  <b>Title:</b>
+  <%=h @snapshot.title %>
+</p>
+<p>
+  <b>summary:</b>
+  <%=h @snapshot.summary %>
+</p>
+<p>
+  <b>Entryid:</b>
+  <%=h @snapshot.entryid %>
+</p>
+<p>
+  <b>Entryupdated:</b>
+  <%=h @snapshot.entryupdated %>
+</p>
+<p>
+ entrycreated:
+#  entryupdated:
+#  created_at:
+#  entryfull:
+#  title:
+#  updated_at:
+#  entryid:
+#  summary:
+</p>
+<%= link_to 'Edit', edit_snapshot_path(@snapshot) %> |
+<%= link_to 'Back', snapshots_path %>

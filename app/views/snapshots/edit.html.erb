@@ -1,0 +1,24 @@
+<h1>Editing snapshot</h1>
+
+<% form_for(@snapshot) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :entryid %><br />
+    <%= f.text_field :entryid %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @snapshot %> |
+<%= link_to 'Back', snapshots_path %>

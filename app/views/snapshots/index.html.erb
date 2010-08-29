@@ -1,0 +1,34 @@
+<h1>Showing all the calendar entries</h1>
+<p><%= link_to 'Home', grablists_path %></p>
+<p>This page is showing every saved calendar entry</p>
+<p>Tip: Use your browser "find" tool to search the page for the text you are
+  looking for.</p>
+
+<table>
+  <tr>
+    <th class="visualhighlight" colspan="5">Entry ID</th>
+  </tr>
+  <tr>
+    <th>Entry Created</th>
+    <th>Updated</th>
+    <th>Title</th>
+    <th>Entryfull</th>
+    <th>Summary</th>
+  </tr>
+
+<% @snapshots.each do |snapshot| %>
+
+
+  <tr>
+    <td class="visualhighlight" colspan="5"><%=  h snapshot.entryid %></td>
+  </tr>
+  <tr>
+    <td><%= h snapshot.entrycreated %></td>
+    <td><%=  h snapshot.entryupdated %></td>
+    <td><%=  h snapshot.title %></td>
+    <td><%=  h snapshot.entryfull %></td>
+    <td><%=  h snapshot.summary %></td>
+  </tr> 
+<% end %>
+</table>
+

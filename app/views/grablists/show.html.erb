@@ -1,0 +1,18 @@
+<p>
+  <b>Feedurl:</b>
+  <%=h @grablist.feedurl %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @grablist.title %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @grablist.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_grablist_path(@grablist) %> |
+<%= link_to 'Back', grablists_path %>

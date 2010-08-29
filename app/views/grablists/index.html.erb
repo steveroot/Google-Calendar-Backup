@@ -1,0 +1,39 @@
+<h1>Steve Root's Calendar Change Monitor</h1>
+<p>This calendar monitor was written by
+  <a href="http://www.steveroot.co.uk">Steve Root (http://www.steveroot.co.uk)</a>.
+  It's very simple. It reads an XML feed of a google calendar and saves each
+  calendar entry into a database. When the feed is next requested, it ignores
+  any entries that are the same and saves any entries that have changed.
+  You can add as many calendars as you want to be monitored.</p>
+<p>Why? If someone accidentally deletes an appointment you can go back
+  and see the details.</p>
+<p>There is no password protection on this application, so if you use it, you
+  do so at your own risk.  I run this from within my office network and as all
+  users have access to each others calendar this works for me. I suggest you <strong>don't</strong>
+  run this on an internet server unless you add your own authentication mechanism.</p>
+<p>Questions? Email me <a href="mailto:steve@rootskitchens.co.uk">steve@rootskitchens.co.uk</a></p>
+
+<p><%= link_to 'View all the calendar entries', snapshots_path %></p>
+<p><%= link_to 'Manually fetch the calendar', :controller => "snapshots", :action => "parse" %></p>
+<table>
+  <tr>
+    <th>Feedurl</th>
+    <th>Title</th>
+    <th>User</th>
+  </tr>
+
+<% @grablists.each do |grablist| %>
+  <tr>
+    <td><%=h grablist.feedurl %></td>
+    <td><%=h grablist.title %></td>
+    <td><%=h grablist.user_id %></td>
+    <td><%= link_to 'Show', grablist %></td>
+    <td><%= link_to 'Edit', edit_grablist_path(grablist) %></td>
+    <td><%= link_to 'Destroy', grablist, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add an XML Feed', new_grablist_path %>
