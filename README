@@ -1,0 +1,13 @@
+Google Calendar Backup
+
+Google calendars are great. In our office we need to be able to book appointments for each other and we can do that. Unfortunately it also means we can accidentally delete each others appointments (and our own of course, which I can confess to having done).
+
+I needed to have a way of backing up the data from our users google calendars so that when we delete something, I can look back to find the missing content. My simple approach is to regularly read (I do it once an hour) the private XML feed for each users google calendar. I check each appointment to see if it already exists or is the same as an existing one. If it's new, or it's changed, I save it into a database.
+
+This is a ruby on rails application. I've run out of time this evening. If you try it, remember to "rake db:migrate" when you run it for the first time. More instructions will follow when I've time.
+
+While this works for me, I don't guarantee it will work for you. I particularly suggest you DON'T run this on a public web server as there is no password security and the whole world would be able to see your appointment history. I run it on our internal web server so only people in our network can see it. For testing, I used netbeans to create this so you might find that works for you.
+
+Any questions, feel free to contact me here on github.
+
+PS 雾务 I伍西m a hobby prgrammer, not a professional. This is the first time I伍西ve shared my code so if you find any newbie mistakes as I learn github do let me know! Thanks, Steve Root 雾务 http://www.steveroot.co.uk
